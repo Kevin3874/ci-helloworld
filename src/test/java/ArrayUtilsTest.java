@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Array;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayUtilsTest {
@@ -44,5 +47,41 @@ public class ArrayUtilsTest {
     @Test
     public void testOddOrPositiveBothPositivesAndNegatives() {
         assertEquals(3, ArrayUtils.oddOrPos(new int[]{-3, -2, 0, 1, 4}));
+    }
+
+    @Test
+    public void testCountOf_emptyArray() {
+        int[] x = {};
+        int target = 5;
+        int expected = 0;
+        int actual = ArrayUtils.countOf(x, target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testCountOf_noElementsEqualToTarget() {
+        int[] x = {1, 2, 3, 4};
+        int target = 5;
+        int expected = 0;
+        int actual = ArrayUtils.countOf(x, target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testCountOf_oneElementEqualToTarget() {
+        int[] x = {1, 2, 3, 4, 5};
+        int target = 5;
+        int expected = 1;
+        int actual = ArrayUtils.countOf(x, target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testCountOf_multipleElementsEqualToTarget() {
+        int[] x = {1, 2, 5, 3, 5, 4, 5};
+        int target = 5;
+        int expected = 3;
+        int actual = ArrayUtils.countOf(x, target);
+        assertEquals(expected, actual);
     }
 }
