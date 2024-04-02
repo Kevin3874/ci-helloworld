@@ -37,7 +37,6 @@ jobs:
           fail-if-branches-less-than: 100
           fail-on-coverage-decrease: true
           fail-on-branches-decrease: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   build_and_publish_docker_image:
     name: Publish to Docker Hub
