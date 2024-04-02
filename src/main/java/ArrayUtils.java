@@ -18,6 +18,14 @@ public class ArrayUtils {
         return -1;
     }
 
+    public static int countOf(int[] x, int target) {
+        int count = 0;
+        for (int a: x) {
+            count = a == target ? count + 1 : count;
+        }
+        return count;
+    }
+
     /**
      * Count odd or positive elements
      *
